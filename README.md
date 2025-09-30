@@ -1,59 +1,33 @@
-# Senseibles — Immersive Coming Soon Experience
+# Senseibles — Prism Prelude
 
-A high-fidelity “coming soon” presence for Senseibles Studio. Built with Next.js 15, Tailwind CSS 4, and a custom React Three Fiber scene to preview the agency’s spatial aesthetic while collecting project enquiries.
+A minimalist coming-soon surface for Senseibles Studio, centred on a procedural prism rendered with OGL and wrapped in a dark, cinematic hero layout.
 
-## What’s Inside
-- 3D hero canvas with adaptive performance, post-processing, and branded lighting.
-- Coming-soon messaging paired with direct mail and contact anchors.
-- Server action powered contact form that relays submissions to the studio inbox.
-- Tailwind CSS 4 tokens for rapid styling updates.
+## Highlights
+- Single-screen hero with updated positioning copy and CTAs.
+- Custom `Prism` component built on OGL for a shimmering, rotating structure.
+- Tailwind CSS 4 tokens and Geist font pairing for a polished typographic system.
 
 ## Getting Started
 1. Install dependencies: `npm install`
-2. Copy `.env.example` to `.env.local` and fill in your SMTP credentials (details below).
-3. Run the dev server: `npm run dev`
-4. Lint and type-check when needed: `npm run lint` · `npm run typecheck`
+2. Run the development server: `npm run dev`
+3. Lint and type-check when needed: `npm run lint` · `npm run typecheck`
 
-Visit http://localhost:3000 to review the coming-soon surface and submit a test enquiry.
-
-## Contact Form Delivery
-The contact form posts to a Next.js server action that sends email via SMTP.
-
-Set the following variables in `.env.local` before deploying:
-
-```
-SMTP_HOST=...
-SMTP_PORT=465
-SMTP_USER=...
-SMTP_PASS=...
-# optional: set to "false" if using STARTTLS on port 587
-SMTP_SECURE=true
-
-# Optional override (defaults to sethiamehul14@gmail.com)
-# CONTACT_RECIPIENT=studio@yourdomain.com
-```
-
-- `SMTP_USER`/`SMTP_PASS` should be an app-specific password or transactional inbox credential.
-- The email is sent from `Senseibles Website <SMTP_USER>` with replies routed to the sender’s address.
-- Missing or invalid SMTP details are surfaced to the user with a fallback message.
+Open http://localhost:3000 to view the hero experience.
 
 ## Project Structure
 ```
 src/
 ├─ app/
-│  ├─ actions/          # Server actions (contact form)
 │  ├─ layout.tsx        # Metadata + global font setup
-│  ├─ page.tsx          # Renders hero + contact sections
+│  ├─ page.tsx          # Renders the hero section
 │  └─ globals.css       # Tailwind 4 + design tokens
 ├─ components/
 │  ├─ sections/         # Page-level UI
-│  └─ three/            # React Three Fiber canvas + scene graph
+│  └─ three/            # OGL prism + legacy react-three scaffolding
 ```
 
-### Extending the Experience
-- Swap in GLTF assets within `Experience.tsx` for bespoke artefacts.
-- Expand the sections directory with case studies, roster, or culture moments.
-- Pipe enquiries into a CRM or automation flow once the SMTP channel is verified.
+### Custom Prism
+The `Prism` component (`src/components/three/Prism.tsx`) encapsulates the OGL renderer, shader program, adaptive resizing, and animation modes. Adjust props on `HeroSection` to tweak rotation, colour, and scale for future explorations.
 
 ---
 Senseibles Agency Website
