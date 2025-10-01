@@ -122,7 +122,7 @@ export function ContactForm() {
             type="text"
             value={formValues.name}
             onChange={onChange("name")}
-            className="h-12 w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-sky-400"
+            className="h-12 w-full rounded-xl border border-white/15 bg-white/10 px-4 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-sky-300 focus:bg-white/15"
             placeholder="Your name"
             disabled={disabled}
           />
@@ -139,7 +139,7 @@ export function ContactForm() {
             type="email"
             value={formValues.email}
             onChange={onChange("email")}
-            className="h-12 w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-sky-400"
+            className="h-12 w-full rounded-xl border border-white/15 bg-white/10 px-4 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-sky-300 focus:bg-white/15"
             placeholder="you@company.com"
             disabled={disabled}
           />
@@ -157,7 +157,7 @@ export function ContactForm() {
           type="text"
           value={formValues.company}
           onChange={onChange("company")}
-          className="h-12 w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-sky-400"
+          className="h-12 w-full rounded-xl border border-white/15 bg-white/10 px-4 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-sky-300 focus:bg-white/15"
           placeholder="Studio, collective, or brand"
           disabled={disabled}
         />
@@ -173,7 +173,7 @@ export function ContactForm() {
           rows={5}
           value={formValues.message}
           onChange={onChange("message")}
-          className="w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-sky-400"
+          className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/40 focus:border-sky-300 focus:bg-white/15"
           placeholder="Launch goals, timelines, references, budget signals…"
           disabled={disabled}
         />

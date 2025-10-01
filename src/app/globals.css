@@ -22,6 +22,12 @@ body {
     "Segoe UI", sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
