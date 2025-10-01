@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 
+import ContactForm from "@/components/sections/ContactForm";
 import Prism from "@/components/three/Prism";
 
 export function HeroSection() {
@@ -26,17 +27,29 @@ export function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <Link
-              href="mailto:sethiamehul14@gmail.com"
-              className="inline-flex items-center justify-center rounded-full bg-sky-400 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-950 transition hover:bg-sky-300"
-            >
-              Email the studio
-            </Link>
-            <Link
               href="https://senseibles.com"
               className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:border-sky-300 hover:text-sky-300"
             >
               View latest work
             </Link>
+            <Link
+              href="mailto:sethiamehul14@gmail.com"
+              className="inline-flex items-center justify-center rounded-full bg-sky-400 px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-950 transition hover:bg-sky-300"
+            >
+              Email the studio
+            </Link>
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_0_70px_rgba(56,189,248,0.12)] backdrop-blur-xl">
+            <div className="mb-5 space-y-2">
+              <span className="text-[10px] uppercase tracking-[0.4em] text-sky-200/70">
+                Book a build sprint
+              </span>
+              <p className="text-sm text-slate-300">
+                Drop a note and we will reply with next steps plus a private demo reel.
+              </p>
+            </div>
+            <ContactForm />
           </div>
         </div>
 
