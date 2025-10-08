@@ -127,18 +127,28 @@ export default function LandingPage() {
             </div>
 
             {/* Hero Section */}
-            <div className="pt-2 sm:pt-4 md:pt-6 lg:pt-[70px] pb-2 sm:pb-4 md:pb-6 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
+            <div className="pt-4 sm:pt-6 md:pt-10 lg:pt-[120px] pb-2 sm:pb-4 md:pb-6 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
               <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-1 sm:gap-4 md:gap-5 lg:gap-6">
-                  <div className="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-[#37322F] text-[24px] xs:text-[28px] sm:text-[36px] md:text-[52px] lg:text-[80px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 font-serif px-2 sm:px-4 md:px-0">
+                  <div className="w-full max-w-[748.71px] lg:w-[748.71px] text-center flex justify-center flex-col text-[#37322F] text-[20px] xs:text-[24px] sm:text-[30px] md:text-[40px] lg:text-[70px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-24 font-serif px-2 sm:px-4 md:px-0">
                     Built With Sense.
-                    <br />
+                    {/* <br /> */}
                     By Senseis.
                   </div>
                 </div>
               </div>
 
-              <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-5 sm:gap-7 md:gap-8 lg:gap-8 relative z-10 mt-0 sm:mt-1 md:mt-2 lg:mt-3">
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-3.5 lg:gap-4 mt-3 sm:mt-4 md:mt-5">
+                {["Design", "Development", "AI", "Automation"].map((label) => (
+                  <Badge
+                    key={label}
+                    icon={<span className="inline-block size-[10px] rounded-full bg-[#37322F]" />}
+                    text={label}
+                  />
+                ))}
+              </div>
+
+              <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-5 sm:gap-7 md:gap-8 lg:gap-8 relative z-10 mt-3 sm:mt-4 md:mt-5 lg:mt-6">
                 <div className="backdrop-blur-[8.25px] flex justify-center items-center">
                   <a
                     href="https://cal.com/sethiamehul14"
@@ -303,10 +313,10 @@ export default function LandingPage() {
 
                   <div className="grid grid-cols-1 gap-5 text-[#2F3037] sm:grid-cols-2 lg:grid-cols-4">
                     {[
-                      { highlight: "60+", title: "brands empowered", sub: "with design & tech" },
-                      { highlight: "250+", title: "ops hours", sub: "saved every month" },
+                      { highlight: "20+", title: "products launched", sub: "across web, app & ops" },
+                      { highlight: "250+", title: "systems automated", sub: "for growth & scale" },
                       { highlight: "10x", title: "faster turnaround", sub: "from idea to launch" },
-                      { highlight: "0 churn", title: "because clarity", sub: "builds trust" },
+                      { highlight: "0 churn", title: "guesswork", sub: "everything backed by sense" },
                     ].map((metric) => (
                       <div key={metric.highlight} className="rounded-3xl bg-white/80 px-6 py-8 text-left shadow-[0px_12px_24px_rgba(47,48,55,0.08)]">
                         <div className="text-3xl font-serif font-semibold text-[#2F3037]">{metric.highlight}</div>

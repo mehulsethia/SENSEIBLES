@@ -16,31 +16,31 @@ const VIEWBOX_WIDTH = 880;
 const VIEWBOX_HEIGHT = 420;
 const CENTER_X = VIEWBOX_WIDTH / 2;
 const CENTER_Y = VIEWBOX_HEIGHT / 2;
-const LEFT_ANCHOR = 190;
+const LEFT_ANCHOR = 250;
 const CENTER_GUTTER = 90;
 
 const leftLogos = [
   "/techstack-logos/bubble.png",
-  "/techstack-logos/make.png",
+  "/techstack-logos/webflow.svg",
   "/techstack-logos/n8n.png",
-  "/techstack-logos/python.png",
   "/techstack-logos/chatgpt.png",
+  "/techstack-logos/nextjs.png",
 ];
 
 const rightLogos = [
-  "/techstack-logos/figma.png",
   "/techstack-logos/flutterflow.png",
-  "/techstack-logos/webflow.svg",
   "/techstack-logos/framer.svg",
+  "/techstack-logos/make.png",
+  "/techstack-logos/figma.png",
   "/techstack-logos/supabase.png",
 ];
 
 const ARM_LAYOUT = [
-  { deltaX: -50, deltaY: -120, targetOffset: -90 },
-  { deltaX: -70, deltaY: -70, targetOffset: -50 },
-  { deltaX: -85, deltaY: -20, targetOffset: -10 },
-  { deltaX: -70, deltaY: 40, targetOffset: 30 },
-  { deltaX: -55, deltaY: 100, targetOffset: 80 },
+  { deltaX: -110, deltaY: -100, targetOffset: -60 },
+  { deltaX: -115, deltaY: -50, targetOffset: -30 },
+  { deltaX: -120, deltaY: 0, targetOffset: 0 },
+  { deltaX: -115, deltaY: 50, targetOffset: 30 },
+  { deltaX: -110, deltaY: 100, targetOffset: 60 },
 ];
 
 const nodes: Node[] = ARM_LAYOUT.flatMap((layout, index) => {
@@ -92,7 +92,7 @@ const createConnectorPath = (node: Node) => {
 
 function HeroBeam() {
   return (
-    <div className="relative mt-0 sm:mt-2 w-full overflow-visible px-2 sm:px-4">
+    <div className="relative mt-[-24px] sm:mt-[-16px] w-full overflow-visible px-2 sm:px-4">
       <div className="relative mx-auto w-full max-w-[1320px] overflow-visible rounded-[32px] border border-white/15 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),rgba(247,245,243,0.02)_70%)] px-4 py-18 sm:px-6 sm:py-22"
         style={{ minHeight: "420px" }}
       >
@@ -120,13 +120,13 @@ function HeroBeam() {
         </svg>
 
         <div
-          className="pulse-core absolute z-30 flex h-[118px] w-[118px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[28px] border border-black/5 bg-white shadow-[0_26px_60px_rgba(40,35,32,0.16)]"
+          className="pulse-core absolute z-30 flex h-[88px] w-[88px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[20px] border border-black/5 bg-white shadow-[0_20px_40px_rgba(40,35,32,0.16)]"
           style={{
             left: toPercent(CENTER_X, VIEWBOX_WIDTH),
             top: toPercent(CENTER_Y, VIEWBOX_HEIGHT),
           }}
         >
-          <Image src="/logo/ICON.png" alt="Senseibles icon" width={60} height={60} className="h-12 w-auto" priority />
+          <Image src="/logo/ICON.png" alt="Senseibles icon" width={44} height={44} className="h-10 w-auto" priority />
         </div>
 
         {nodes.map((node) => (
