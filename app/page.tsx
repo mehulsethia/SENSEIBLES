@@ -11,7 +11,7 @@ import NumbersThatSpeak from "../components/numbers-that-speak"
 import DocumentationSection from "../components/documentation-section"
 import TestimonialsSection from "../components/testimonials-section"
 import FAQSection from "../components/faq-section"
-import PricingSection from "../components/pricing-section"
+import ComparisonTable from "../components/comparison-table"
 import CTASection from "../components/cta-section"
 import FooterSection from "../components/footer-section"
 import HeroBeam from "../components/hero-beam"
@@ -48,20 +48,20 @@ export default function LandingPage() {
             <div className="w-full h-12 sm:h-14 md:h-16 lg:h-[84px] absolute left-0 top-0 flex justify-center items-center z-20 px-6 sm:px-8 md:px-12 lg:px-0">
               <div className="w-full h-0 absolute left-0 top-6 sm:top-7 md:top-8 lg:top-[42px] border-t border-[rgba(55,50,47,0.12)] shadow-[0px_1px_0px_white]"></div>
 
-              <div className="w-full max-w-[calc(100%-32px)] sm:max-w-[calc(100%-48px)] md:max-w-[calc(100%-64px)]
+                <div className="w-full max-w-[calc(100%-32px)] sm:max-w-[calc(100%-48px)] md:max-w-[calc(100%-64px)]
                 lg:max-w-[720px] lg:w-[720px] h-10 sm:h-11 md:h-12 py-1.5 sm:py-2 px-3 sm:px-4 md:px-4 pr-2 sm:pr-3
                 bg-[#F7F5F3] backdrop-blur-sm shadow-[0px_0px_0px_2px_white] overflow-hidden rounded-[50px] flex items-center gap-4 relative z-30">
                 <Link href="/" className="flex items-center">
                   <Image src="/logo/LOGO.png" alt="Senseibles" width={120} height={32} priority className="h-7 w-auto" />
                 </Link>
                 <div className="hidden flex-1 items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-7 sm:flex">
-                  <a className="text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans hover:text-[#2F3037] transition-colors" href="#services">
+                  <a className="text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans transition-colors hover:text-[#0b0b0b]" href="#services">
                     Services
                   </a>
-                  <a className="text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans hover:text-[#2F3037] transition-colors" href="#work">
+                  <a className="text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans transition-colors hover:text-[#0b0b0b]" href="#work">
                     Work
                   </a>
-                  <a className="text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans hover:text-[#2F3037] transition-colors" href="#about">
+                  <a className="text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans transition-colors hover:text-[#0b0b0b]" href="#about">
                     About
                   </a>
                 </div>
@@ -125,8 +125,10 @@ export default function LandingPage() {
               <WorkCarousel />
 
               {/* Who We Are Section */}
-              <section className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center bg-[#f7f5f3]">
-                <div className="w-full max-w-[960px] px-6 sm:px-10 lg:px-12 py-16 space-y-12 text-center">
+              <section id="about" className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center bg-[#f7f5f3]">
+                <div className="relative flex w-full max-w-[1060px] flex-col px-4 sm:px-6 md:px-8 py-16 space-y-12 text-center">
+                  <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-px bg-[rgba(55,50,47,0.12)] sm:block" />
+                  <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-px bg-[rgba(55,50,47,0.12)] sm:block" />
                   <div className="flex justify-center">
                     <Badge
                       icon={
@@ -145,7 +147,7 @@ export default function LandingPage() {
                           <rect x="9.5" y="5" width="1" height="1" fill="#37322F" />
                         </svg>
                       }
-                      text="Who we are"
+                      text="ABOUT US"
                     />
                   </div>
 
@@ -196,13 +198,13 @@ export default function LandingPage() {
                     }
                   }
                   .logo-marquee {
-                    animation: logo-marquee 22s linear infinite;
+                    animation: logo-marquee 16s linear infinite;
                   }
                 `}</style>
               </section>
 
               {/* Bento Grid Section */}
-              <div className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
+              <div id="services" className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
                 {/* Header Section */}
                 <div className="self-stretch px-4 sm:px-6 md:px-8 lg:px-0 lg:max-w-[1060px] lg:w-[1060px] py-8 sm:py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
                   <div className="w-full max-w-[616px] lg:w-[616px] px-4 sm:px-6 py-4 sm:py-5 shadow-[0px_2px_4px_rgba(50,45,43,0.06)] overflow-hidden rounded-lg flex flex-col justify-start items-center gap-3 sm:gap-4 shadow-none">
@@ -215,7 +217,7 @@ export default function LandingPage() {
                           <rect x="7" y="7" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
                         </svg>
                       }
-                      text="Our Services"
+                      text="SERVICES"
                     />
                     <div className="w-full max-w-[598.06px] lg:w-[598.06px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
                       What We Do Best
@@ -354,8 +356,8 @@ export default function LandingPage() {
               {/* Testimonials Section */}
               <TestimonialsSection />
 
-              {/* Pricing Section */}
-              <PricingSection />
+              {/* Comparison Section */}
+              <ComparisonTable />
 
               {/* FAQ Section */}
               <FAQSection />
@@ -379,7 +381,7 @@ export default function LandingPage() {
                   </div>
 
                   <div className="relative z-20 flex-1 space-y-6 text-left">
-                    <h2 className="text-[#2F3037] text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
+                    <h2 className="text-[#2F3037] text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight">
                       Human by design.
                       <br />
                       Intelligent by build.
@@ -418,8 +420,8 @@ export default function LandingPage() {
                       </div>
                       <div>
                         <p className="text-xs uppercase tracking-[0.3em] text-[#9A938F]">Prefer email?</p>
-                        <a href="mailto:support@senseibles.com" className="font-medium">
-                          support@senseibles.com
+                        <a href="mailto:mehul@senseibles.com" className="font-medium">
+                          mehul@senseibles.com
                         </a>
                       </div>
                     </div>

@@ -120,17 +120,26 @@ export default function WorkCarousel() {
   const goNext = () => setActive((prev) => wrapIndex(prev + 1, WORKS.length))
 
   return (
-    <section className="w-full border-b border-[rgba(55,50,47,0.12)] bg-[#F7F5F3] pb-12 pt-6 sm:pb-16 sm:pt-10 md:pb-20 md:pt-12">
-      <div className="mx-auto flex w-full max-w-[1060px] flex-col gap-8 px-4 sm:px-6 md:px-8">
-        <div className="flex items-center justify-center text-[#E0DEDB]">
-          <span className="inline-block h-px w-24 bg-[#E0DEDB]" />
+    <section id="work" className="w-full border-b border-[rgba(55,50,47,0.12)] bg-[#F7F5F3] pb-12 pt-6 sm:pb-16 sm:pt-10 md:pb-20 md:pt-12">
+      <div className="relative mx-auto flex w-full max-w-[1060px] flex-col gap-8 px-4 sm:px-6 md:px-8">
+        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-px bg-[rgba(55,50,47,0.12)] sm:block" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-px bg-[rgba(55,50,47,0.12)] sm:block" />
+
+        <div className="flex w-full items-center justify-center">
+          <span className="inline-block h-px w-full bg-[#E0DEDB]" />
         </div>
 
         <div className="flex flex-col items-center gap-3 text-center">
-          <span className="rounded-full border border-[rgba(55,50,47,0.12)] bg-white px-4 py-1 text-xs font-medium uppercase tracking-[0.3em] text-[#605A57]">
-            Projects
+          <span className="px-[14px] py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs text-xs font-medium uppercase leading-3 text-[#37322F]">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
+              <rect x="7" y="1" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
+              <rect x="1" y="7" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
+              <rect x="7" y="7" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
+            </svg>
+            PROJECTS
           </span>
-          <h2 className="font-serif text-3xl font-semibold text-[#2F3037] sm:text-4xl md:text-[46px]">
+          <h2 className="text-[#49423D] text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
             Where design meets systems thinking
           </h2>
           <p className="max-w-[580px] text-sm text-[#605A57] sm:text-base">

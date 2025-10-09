@@ -165,10 +165,13 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-[#f7f5f3]">
-      <div className="mx-auto flex w-full max-w-[1060px] flex-col gap-8 px-4 py-16 text-center sm:px-6 md:px-8 lg:py-20">
+      <div className="relative mx-auto flex w-full max-w-[1060px] flex-col gap-8 px-4 py-16 text-center sm:px-6 md:px-8 lg:py-20">
+        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-px bg-[rgba(55,50,47,0.12)] sm:block" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-px bg-[rgba(55,50,47,0.12)] sm:block" />
+
         <div className="flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(2,6,23,0.08)] bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-[0.35em] text-[#37322F] shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)]">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <span className="px-[14px] py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs text-xs font-medium uppercase leading-3 text-[#37322F]">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M7 1C3.686 1 1 3.686 1 7s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6Zm.875 9.708v.917h-1.75v-.917h1.75Zm.083-2.75-.458.188c-.583.25-.792.5-.792.896H5.541c0-.896.458-1.417 1.417-1.792l.5-.208c.458-.188.667-.438.667-.771 0-.541-.458-.958-1.083-.958-.75 0-1.083.438-1.083 1.041H4.5c0-1.458 1.125-2.208 2.375-2.208 1.292 0 2.375.771 2.375 2 0 .875-.417 1.458-1.292 1.771Z"
                 fill="#37322F"
