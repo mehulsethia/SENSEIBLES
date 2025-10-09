@@ -21,19 +21,44 @@ export default function DocumentationSection() {
 
   const cards = [
     {
-      title: "Plan your schedules",
-      description: "Explore your data, build your dashboard,\nbring your team together.",
-      image: "/modern-dashboard-interface-with-data-visualization.jpg",
+      title: "Discover & Define",
+      description: "We audit what exists, surface bottlenecks, and blueprint the fix.",
+      bullets: [
+        "Deep-dive discovery sessions to understand your systems and goals.",
+        "Clear problem mapping before a single pixel is designed.",
+        "Defined success metrics to measure impact post-launch.",
+      ],
+      image: "/process-assets/discover.svg",
     },
     {
-      title: "Data to insights in minutes",
-      description: "Transform raw data into actionable insights\nwith powerful analytics tools.",
-      image: "/analytics-dashboard.png",
+      title: "Design & Prototype",
+      description: "We turn clarity into visuals — elegant interfaces, efficient systems, zero fluff.",
+      bullets: [
+        "Figma-first, idea-to-interface collaboration.",
+        "Iterative design reviews with live feedback loops.",
+        "Early interaction prototypes to validate user flows fast.",
+      ],
+      image: "/process-assets/design.svg",
     },
     {
-      title: "Collaborate seamlessly",
-      description: "Work together in real-time with your team\nand share insights instantly.",
-      image: "/team-collaboration-interface-with-shared-workspace.jpg",
+      title: "Develop & Automate",
+      description: "Using the best techstack in code, low-code, and AI, we build scalable digital experiences.",
+      bullets: [
+        "Modular builds using modern frameworks and no/low-code platforms.",
+        "Automations and AI layers that reduce manual work.",
+        "Weekly progress updates and milestone-based reviews.",
+      ],
+      image: "/process-assets/develop.svg",
+    },
+    {
+      title: "Deploy & Optimize",
+      description: "We launch, measure, and iterate — continuously refining until the system feels invisible.",
+      bullets: [
+        "Structured handoff with documentation and walkthroughs.",
+        "Post-launch sprints for performance and scalability tweaks.",
+        "Continuous support for updates, integrations, and new ideas.",
+      ],
+      image: "/process-assets/deploy.svg",
     },
   ]
 
@@ -51,6 +76,8 @@ export default function DocumentationSection() {
     setAnimationKey((prev) => prev + 1)
   }
 
+  const activeCardData = cards[activeCard] ?? cards[0]
+
   return (
     <div className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
       {/* Header Section */}
@@ -60,15 +87,15 @@ export default function DocumentationSection() {
             icon={
               <div className="w-[10.50px] h-[10.50px] outline outline-[1.17px] outline-[#37322F] outline-offset-[-0.58px] rounded-full"></div>
             }
-            text="Platform Features"
+            text="Our Process"
           />
           <div className="self-stretch text-center flex justify-center flex-col text-[#49423D] text-3xl md:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
-            Streamline your business operations
+            How We Build Senseible Products
           </div>
           <div className="self-stretch text-center text-[#605A57] text-base font-normal leading-7 font-sans">
-            Manage schedules, analyze data, and collaborate with your team
+            Every project moves through a focused, collaborative, and highly iterative process.
             <br />
-            all in one powerful platform.
+            We keep the process flexible and the results extraordinary.
           </div>
         </div>
       </div>
@@ -77,7 +104,7 @@ export default function DocumentationSection() {
       <div className="self-stretch px-4 md:px-9 overflow-hidden flex justify-start items-center">
         <div className="flex-1 py-8 md:py-11 flex flex-col md:flex-row justify-start items-center gap-6 md:gap-12">
           {/* Left Column - Feature Cards */}
-          <div className="w-full md:w-auto md:max-w-[400px] flex flex-col justify-center items-center gap-4 order-2 md:order-1">
+          <div className="w-full md:flex-1 md:max-w-[400px] h-full flex flex-col justify-center items-center gap-4 order-2 md:order-1">
             {cards.map((card, index) => {
               const isActive = index === activeCard
 
@@ -103,7 +130,7 @@ export default function DocumentationSection() {
                     <div className="self-stretch flex justify-center flex-col text-[#49423D] text-sm font-semibold leading-6 font-sans">
                       {card.title}
                     </div>
-                    <div className="self-stretch text-[#605A57] text-[13px] font-normal leading-[22px] font-sans whitespace-pre-line">
+                    <div className="self-stretch text-[#605A57] text-[13px] font-normal leading-[22px] font-sans">
                       {card.description}
                     </div>
                   </div>
@@ -113,17 +140,31 @@ export default function DocumentationSection() {
           </div>
 
           {/* Right Column - Image */}
-          <div className="w-full md:w-auto rounded-lg flex flex-col justify-center items-center gap-2 order-1 md:order-2 md:px-0 px-[00]">
-            <div className="w-full md:w-[580px] h-[250px] md:h-[420px] bg-white shadow-[0px_0px_0px_0.9056603908538818px_rgba(0,0,0,0.08)] overflow-hidden rounded-lg flex flex-col justify-start items-start">
-              <div
-                className={`w-full h-full transition-all duration-300 ${
-                  activeCard === 0
-                    ? "bg-gradient-to-br from-blue-50 to-blue-100"
-                    : activeCard === 1
-                      ? "bg-gradient-to-br from-purple-50 to-purple-100"
-                      : "bg-gradient-to-br from-green-50 to-green-100"
-                }`}
+          <div className="w-full md:flex-1 rounded-lg flex flex-col justify-between items-center gap-4 order-1 md:order-2 md:px-0 px-0 h-full">
+            <div className="w-full md:w-[580px] space-y-2">
+              <div className="flex flex-col gap-1.5">
+                {activeCardData.bullets.map((point) => (
+                  <div
+                    key={point}
+                    className="flex items-center gap-2 rounded-full border border-[rgba(55,50,47,0.18)] bg-white px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-[#37322F] shadow-[0px_2px_6px_rgba(47,48,55,0.08)]"
+                  >
+                    <span className="inline-block size-1.5 flex-shrink-0 rounded-full bg-[#37322F]" />
+                    <span className="flex-1 text-left normal-case tracking-normal text-[12px] font-medium text-[#49423D]">
+                      {point}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative w-full md:w-[580px] h-[220px] md:h-[360px] bg-white shadow-[0px_0px_0px_0.9056603908538818px_rgba(0,0,0,0.08)] overflow-hidden rounded-lg flex items-center justify-center">
+              <img
+                key={activeCardData.image}
+                src={activeCardData.image}
+                alt={activeCardData.title}
+                className="h-full w-full object-contain p-6"
+                loading="lazy"
               />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent" />
             </div>
           </div>
         </div>
