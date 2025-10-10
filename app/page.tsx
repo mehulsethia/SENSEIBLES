@@ -275,13 +275,12 @@ export default function LandingPage() {
                           From Webflow and Framer to full-stack code, we build scalable digital systems that grow with you — fast, clean, and future-proof.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden text-right items-center justify-center">
-                        <YourWorkInSync
-                          width="400"
-                          height="250"
-                          theme="light"
-                          className="scale-60 sm:scale-75 md:scale-90"
-                        />
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden justify-center items-center relative bg-transparent">
+                        <div className="w-full h-full flex items-center justify-center bg-transparent">
+                          <EffortlessIntegration width={400} height={250} className="max-w-full max-h-full" />
+                        </div>
+                        {/* Gradient mask for soft bottom edge */}
+                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent pointer-events-none"></div>
                       </div>
                     </div>
 
@@ -295,12 +294,13 @@ export default function LandingPage() {
                           We go beyond plug-and-play AI. From automation pipelines to custom-trained agents, we make intelligence an integral part of how your business operates.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden justify-center items-center relative bg-transparent">
-                        <div className="w-full h-full flex items-center justify-center bg-transparent">
-                          <EffortlessIntegration width={400} height={250} className="max-w-full max-h-full" />
-                        </div>
-                        {/* Gradient mask for soft bottom edge */}
-                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent pointer-events-none"></div>
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden text-right items-center justify-center">
+                        <YourWorkInSync
+                          width="400"
+                          height="250"
+                          theme="light"
+                          className="scale-60 sm:scale-75 md:scale-90"
+                        />
                       </div>
                     </div>
 
