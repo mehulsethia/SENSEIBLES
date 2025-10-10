@@ -16,57 +16,99 @@ const WORKS: Work[] = [
     src: "/works/creammoney.png",
     title: "Cream Money",
     subtitle: "Fintech brand & dashboard",
-    href: "https://creammoney.co",
-    tags: ["Bubble", "Web App", "Automation"],
+    href: "https://www.creammoney.com/",
+    tags: ["Webflow", "UI/UX"],
   },
   {
     src: "/works/designmadecool.png",
     title: "Design Made Cool",
     subtitle: "Studio portfolio overhaul",
     href: "https://designmadecool.com",
-    tags: ["Webflow", "Brand", "Copy"],
+    tags: ["Webflow", "GSAP", "3D Animation", "Portfolio"],
   },
   {
     src: "/works/doughy.png",
     title: "Doughy",
     subtitle: "Bakery subscription experience",
-    href: "https://doughy.app",
-    tags: ["Shopify", "Retention", "Automation"],
+    href: "https://eatdoughy.com/",
+    tags: ["Shopify", "Liquid JS", "Ecommerce"],
   },
   {
     src: "/works/divviit.png",
     title: "Divviit",
-    subtitle: "B2B marketplace platform",
-    href: "https://divviit.co",
-    tags: ["Product Strategy", "Web App", "Integrations"],
+    subtitle: "Estate Management SaaS",
+    href: "https://divviit.com/",
+    tags: ["Bubble", "Figma", "OpenAI"],
   },
   {
     src: "/works/suburbia.png",
     title: "Suburbia",
-    subtitle: "Community retail marketplace",
-    href: "https://suburbia.fm",
-    tags: ["UX", "Marketplace", "Automation"],
+    subtitle: "Customized Skateboard Ecommerce Store",
+    href: "https://suburbia-skate.netlify.app/",
+    tags: ["Next JS", "Three JS", "3D Animation", "Ecommerce Store Integrations"],
   },
   {
     src: "/works/superbenji.png",
     title: "Super Benji",
-    subtitle: "Kids finance mobile app",
-    href: "https://superbenji.io",
-    tags: ["Figma", "Mobile", "Flow Design"],
+    subtitle: "Sales outreach SaaS that helps users automate LinkedIn prospecting and email follow-ups.",
+    href: "https://superbenji.ai/",
+    tags: ["Figma", "Bubble", "APIs"],
   },
   {
     src: "/works/thirstydumplings.png",
     title: "Thirsty Dumplings",
-    subtitle: "Restaurant ordering flow",
-    href: "https://thirstydumplings.com",
-    tags: ["Brand", "Ordering", "Automation"],
+    subtitle: "A DIY dumpling experience",
+    href: "https://thirstydumpling.com/",
+    tags: ["Branding", "UI/UX", "Framer", "Shopify"],
   },
   {
     src: "/works/wedmana.png",
     title: "Wedmana",
     subtitle: "Wedding planning workspace",
-    href: "https://wedmana.com",
-    tags: ["Notion", "Process", "Operations"],
+    href: "https://wedmana.io/",
+    tags: ["Bubble", "Markertplace", "Stripe Connect"],
+  },
+  {
+    src: "/works/fitnessmobileapp.webp",
+    title: "Fitness Mobile App",
+    subtitle: "Fitness tracking app",
+    href: "https://contra.com/p/XsYsmgsN-fitness-app-design-and-development?r=mehul_sethia",
+    tags: ["Flutterflow", "Flutter", "Figma"],
+  },
+  {
+    src: "/works/contentdepot.png",
+    title: "Content Depot",
+    subtitle: "Creator marketplace and job board",
+    href: "https://contentdepot.co.nz/",
+    tags: ["Figma", "Bubble", "Stripe Connect"],
+  },
+  {
+    src: "/works/formcarry.png",
+    title: "Form Carry",
+    subtitle: "Best form backend",
+    href: "https://formcarry.com/",
+    tags: ["Webflow", "Memberstack", "Relume"],
+  },
+  {
+    src: "/works/weareker.png",
+    title: "Ker",
+    subtitle: "Wellness Ecommerce Brand",
+    href: "https://weareker.com/",
+    tags: ["Shopify", "Liquid JS", "CRM Integration"],
+  },
+  {
+    src: "/works/bidx.png",
+    title: "Bidx",
+    subtitle: "AI powered government bid/grant matching and application SaaS",
+    href: "https://bidx.ai/",
+    tags: ["Bubble", "Supabase", "N8N"],
+  },
+  {
+    src: "/works/buzzdaddy.png",
+    title: "Buzz Daddy",
+    subtitle: "Name-drop your business across social media 24/7",
+    href: "https://buzzdaddy.ai/",
+    tags: ["NextJS", "Python", "Supabase", "OpenAI"],
   },
 ]
 
@@ -76,24 +118,35 @@ function wrapIndex(index: number, length: number) {
   return (index + length) % length
 }
 
+function shuffleArray<T>(items: readonly T[]) {
+  const shuffled = [...items]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
 export default function WorkCarousel() {
   const [active, setActive] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const works = useMemo(() => shuffleArray(WORKS), [])
+  const worksCount = works.length
 
   useEffect(() => {
     if (isPaused) return
     const timer = setInterval(() => {
-      setActive((prev) => (prev + 1) % WORKS.length)
+      setActive((prev) => (prev + 1) % worksCount)
     }, 4200)
 
     return () => clearInterval(timer)
-  }, [isPaused])
+  }, [isPaused, worksCount])
 
   const slides = useMemo(() => {
     return POSITIONS.map((offset) => {
-      const index = wrapIndex(active + offset, WORKS.length)
+      const index = wrapIndex(active + offset, worksCount)
       const isActive = offset === 0
-      const work = WORKS[index]
+      const work = works[index]
       const translate = `calc(-50% + ${offset * 60}%)`
       const scale = isActive ? 1 : 0.88
       const opacity = isActive ? 1 : 0.55
@@ -113,9 +166,9 @@ export default function WorkCarousel() {
         } as CSSProperties,
       }
     })
-  }, [active])
+  }, [active, works, worksCount])
 
-  const goTo = (index: number) => setActive(wrapIndex(index, WORKS.length))
+  const goTo = (index: number) => setActive(wrapIndex(index, worksCount))
   const goPrev = () => setActive((prev) => wrapIndex(prev - 1, WORKS.length))
   const goNext = () => setActive((prev) => wrapIndex(prev + 1, WORKS.length))
 
