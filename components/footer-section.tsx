@@ -13,7 +13,7 @@ export default function FooterSection() {
             </Link>
             <div className="text-[rgba(73,66,61,0.90)] text-sm font-medium leading-[18px] font-sans">Design, Build and Automate - The Senseible Way</div>
           </div>
-          <div className="flex items-center gap-6 text-sm font-medium text-[#49423D]">
+          <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-[#49423D] sm:gap-6">
             <Link href="#services" className="transition-colors hover:text-[#0b0b0b]">
               Services
             </Link>
@@ -28,7 +28,7 @@ export default function FooterSection() {
 
         <div className="flex flex-col items-start justify-between gap-6 border-t border-[rgba(55,50,47,0.12)] pt-6 md:flex-row md:items-center">
           <div className="text-xs uppercase tracking-[0.25em] text-[#9A938F]">Follow us</div>
-          <div className="flex items-center gap-4 text-[#49423D]">
+          <div className="flex flex-wrap items-center gap-4 text-[#49423D]">
             <Link href="https://twitter.com" className="transition hover:text-[#0b0b0b]" aria-label="Twitter">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor" />

@@ -92,10 +92,8 @@ const createConnectorPath = (node: Node) => {
 
 function HeroBeam() {
   return (
-    <div className="relative mt-[-24px] sm:mt-[-16px] w-full overflow-visible px-2 sm:px-4">
-      <div className="relative mx-auto w-full max-w-[1320px] overflow-visible rounded-[32px] border border-white/15 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),rgba(247,245,243,0.02)_70%)] px-4 py-18 sm:px-6 sm:py-22"
-        style={{ minHeight: "420px" }}
-      >
+    <div className="relative mt-8 w-full overflow-visible px-3 sm:mt-6 sm:px-4 lg:mt-10">
+      <div className="relative mx-auto w-full max-w-[1100px] overflow-visible rounded-[32px] border border-white/15 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),rgba(247,245,243,0.02)_70%)] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20 min-h-[280px] sm:min-h-[360px] lg:min-h-[420px]">
         <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-[linear-gradient(90deg,rgba(55,50,47,0.05)_1px,transparent_1px),linear-gradient(0deg,rgba(55,50,47,0.05)_1px,transparent_1px)] bg-[size:36px_36px] opacity-40" />
 
         <svg
@@ -120,28 +118,28 @@ function HeroBeam() {
         </svg>
 
         <div
-          className="pulse-core absolute z-30 flex h-[88px] w-[88px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[20px] border border-black/5 bg-white shadow-[0_20px_40px_rgba(40,35,32,0.16)]"
+          className="pulse-core absolute z-30 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[18px] border border-black/5 bg-white shadow-[0_16px_34px_rgba(40,35,32,0.16)] sm:h-20 sm:w-20 sm:rounded-[20px]"
           style={{
             left: toPercent(CENTER_X, VIEWBOX_WIDTH),
             top: toPercent(CENTER_Y, VIEWBOX_HEIGHT),
           }}
         >
-          <Image src="/logo/ICON.png" alt="Senseibles icon" width={44} height={44} className="h-10 w-auto" priority />
+          <Image src="/logo/ICON.png" alt="Senseibles icon" width={44} height={44} className="h-8 w-auto sm:h-10" priority />
         </div>
 
         {nodes.map((node) => (
           <div
             key={node.id}
-            className="node-glow absolute z-20 flex h-[64px] w-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[24px] border border-white/65 bg-white shadow-[0_14px_32px_rgba(51,48,45,0.1)] backdrop-blur-sm"
+            className="node-glow absolute z-20 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[20px] border border-white/65 bg-white shadow-[0_12px_28px_rgba(51,48,45,0.1)] backdrop-blur-sm sm:h-16 sm:w-16 sm:rounded-[24px]"
             style={{ left: toPercent(node.x, VIEWBOX_WIDTH), top: toPercent(node.y, VIEWBOX_HEIGHT) }}
           >
-            <div className="relative flex h-[42px] w-[42px] items-center justify-center overflow-hidden rounded-2xl bg-white">
+            <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl bg-white sm:h-[42px] sm:w-[42px]">
               <Image
                 src={node.logo}
                 alt="Integration"
                 width={36}
                 height={36}
-                className="h-8 w-8 object-contain"
+                className="h-7 w-7 object-contain sm:h-8 sm:w-8"
                 unoptimized={node.logo.endsWith(".svg")}
               />
             </div>

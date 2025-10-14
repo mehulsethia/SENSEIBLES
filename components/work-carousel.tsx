@@ -130,8 +130,12 @@ function shuffleArray<T>(items: readonly T[]) {
 export default function WorkCarousel() {
   const [active, setActive] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
-  const works = useMemo(() => shuffleArray(WORKS), [])
+  const [works, setWorks] = useState<Work[]>(WORKS)
   const worksCount = works.length
+
+  useEffect(() => {
+    setWorks(shuffleArray(WORKS))
+  }, [])
 
   useEffect(() => {
     if (isPaused) return
@@ -146,7 +150,7 @@ export default function WorkCarousel() {
     return POSITIONS.map((offset) => {
       const index = wrapIndex(active + offset, worksCount)
       const isActive = offset === 0
-      const work = works[index]
+      const work = works[index] ?? works[wrapIndex(0, worksCount)]
       const translate = `calc(-50% + ${offset * 60}%)`
       const scale = isActive ? 1 : 0.88
       const opacity = isActive ? 1 : 0.55
@@ -169,8 +173,8 @@ export default function WorkCarousel() {
   }, [active, works, worksCount])
 
   const goTo = (index: number) => setActive(wrapIndex(index, worksCount))
-  const goPrev = () => setActive((prev) => wrapIndex(prev - 1, WORKS.length))
-  const goNext = () => setActive((prev) => wrapIndex(prev + 1, WORKS.length))
+  const goPrev = () => setActive((prev) => wrapIndex(prev - 1, worksCount))
+  const goNext = () => setActive((prev) => wrapIndex(prev + 1, worksCount))
 
   return (
     <section id="work" className="w-full border-b border-[rgba(55,50,47,0.12)] bg-[#F7F5F3] pb-12 pt-6 sm:pb-16 sm:pt-10 md:pb-20 md:pt-12">
@@ -201,7 +205,7 @@ export default function WorkCarousel() {
         </div>
 
         <div
-          className="relative h-[360px] sm:h-[400px] md:h-[440px]"
+          className="relative h-[320px] sm:h-[380px] md:h-[440px]"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -212,7 +216,7 @@ export default function WorkCarousel() {
               style={style}
             >
               <article
-                className={`group relative h-full w-full overflow-hidden rounded-[28px] border border-white/70 bg-white/90 shadow-[0px_22px_60px_rgba(55,50,47,0.18)] backdrop-blur-sm ${
+                className={`group relative h-full w-full overflow-hidden rounded-[28px] border border-white/70 bg-white/90 backdrop-blur-sm ${
                   isActive ? "" : "blur-[0.3px]"
                 }`}
               >
@@ -285,7 +289,7 @@ export default function WorkCarousel() {
         </div>
 
         <div className="mx-auto flex items-center justify-center gap-2">
-          {WORKS.map((_, idx) => (
+          {works.map((_, idx) => (
             <button
               key={idx}
               onClick={() => goTo(idx)}

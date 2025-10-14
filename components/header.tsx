@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { Button } from "@/components/ui/button"
+import { WorkWithMeModal } from "@/components/work-with-me-modal"
 
 export function Header() {
   return (
@@ -16,15 +16,16 @@ export function Header() {
             <button className="text-[#37322f] hover:text-[#37322f]/80 text-sm font-medium">Pricing</button>
             <button className="text-[#37322f] hover:text-[#37322f]/80 text-sm font-medium">Docs</button>
           </div>
-          <Button
-            asChild
-            variant="ghost"
-            className="ml-auto text-[#37322f] hover:bg-[#37322f]/5"
-          >
-            <Link href="https://cal.com/sethiamehul14" target="_blank" rel="noopener noreferrer">
-              Book a call
-            </Link>
-          </Button>
+          <WorkWithMeModal
+            trigger={
+              <button
+                type="button"
+                className="ml-auto inline-flex items-center rounded-full border border-transparent bg-white px-4 py-2 text-sm font-medium text-[#37322f] transition hover:bg-[#37322f]/5"
+              >
+                Book a call
+              </button>
+            }
+          />
         </nav>
       </div>
     </header>

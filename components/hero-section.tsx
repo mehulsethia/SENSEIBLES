@@ -1,6 +1,4 @@
-import Link from "next/link"
-
-import { Button } from "@/components/ui/button"
+import { WorkWithMeModal } from "@/components/work-with-me-modal"
 
 export function HeroSection() {
   return (
@@ -23,14 +21,16 @@ export function HeroSection() {
 
           {/* CTA Button */}
           <div className="flex justify-center">
-            <Button
-              asChild
-              className="h-10 px-12 bg-[#37322f] hover:bg-[#37322f]/90 text-white rounded-full font-medium text-sm shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset]"
-            >
-              <Link href="https://cal.com/sethiamehul14" target="_blank" rel="noopener noreferrer">
-                Book a Call
-              </Link>
-            </Button>
+            <WorkWithMeModal
+              trigger={
+                <button
+                  type="button"
+                  className="h-10 px-12 rounded-full bg-[#37322f] text-sm font-medium text-white shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] transition hover:bg-[#37322f]/90"
+                >
+                  Book a Call
+                </button>
+              }
+            />
           </div>
         </div>
       </div>
