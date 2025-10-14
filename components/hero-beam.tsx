@@ -92,8 +92,8 @@ const createConnectorPath = (node: Node) => {
 
 function HeroBeam() {
   return (
-    <div className="relative mt-8 w-full overflow-visible px-3 sm:mt-6 sm:px-4 lg:mt-10">
-      <div className="relative mx-auto w-full max-w-[1100px] overflow-visible rounded-[32px] border border-white/15 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),rgba(247,245,243,0.02)_70%)] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20 min-h-[280px] sm:min-h-[360px] lg:min-h-[420px]">
+    <div className="relative mt-5 w-full overflow-visible px-3 sm:mt-4 sm:px-4 lg:mt-6">
+      <div className="relative mx-auto w-full max-w-[1100px] overflow-visible rounded-[32px] border border-white/15 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),rgba(247,245,243,0.02)_70%)] px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-18 min-h-[260px] sm:min-h-[340px] lg:min-h-[380px]">
         <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-[linear-gradient(90deg,rgba(55,50,47,0.05)_1px,transparent_1px),linear-gradient(0deg,rgba(55,50,47,0.05)_1px,transparent_1px)] bg-[size:36px_36px] opacity-40" />
 
         <svg

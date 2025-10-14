@@ -51,11 +51,11 @@ export default function LandingPage() {
           {/* Right vertical line */}
           <div className="w-[1px] h-full absolute right-4 sm:right-6 md:right-8 lg:right-0 top-0 bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] z-0"></div>
 
-          <div className="self-stretch pt-[9px] overflow-hidden border-b border-[rgba(55,50,47,0.06)] flex flex-col justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-[66px] relative z-10">
+          <div className="self-stretch pt-[6px] overflow-hidden border-b border-[rgba(55,50,47,0.06)] flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-7 lg:gap-[52px] relative z-10">
             {/* Navigation */}
-            <header className="relative z-20 w-full px-4 sm:px-6 md:px-8 lg:px-0 pt-4 sm:pt-6 md:pt-8">
-              <div className="pointer-events-none absolute inset-x-4 top-6 hidden h-px bg-[rgba(55,50,47,0.12)] shadow-[0px_1px_0px_white] sm:block sm:inset-x-6 md:inset-x-8 lg:inset-x-0 lg:top-[42px]" />
-              <div className="relative mx-auto flex w-full max-w-[720px] items-center gap-3 rounded-full bg-[#F7F5F3]/95 px-3 py-2 shadow-[0px_0px_0px_2px_white] backdrop-blur-sm sm:px-4 sm:py-2.5 md:px-6">
+            <header className="relative z-20 w-full px-4 sm:px-6 md:px-8 lg:px-0 flex justify-center items-center py-3">
+              <div className="pointer-events-none absolute inset-x-4 top-1/2 hidden h-px -translate-y-1/2 bg-[rgba(55,50,47,0.12)] shadow-[0px_1px_0px_white] sm:block sm:inset-x-6 md:inset-x-8 lg:inset-x-0" />
+              <div className="relative mx-auto flex w-full max-w-[720px] items-center gap-3 rounded-full bg-[#F7F5F3]/95 px-3 py-[6px] shadow-[0px_0px_0px_2px_white] backdrop-blur-sm sm:px-4 sm:py-[8px] md:px-6">
                 <Link href="/" className="flex items-center">
                   <Image src="/logo/LOGO.png" alt="Senseibles" width={120} height={32} priority className="h-7 w-auto" />
                 </Link>
@@ -134,7 +134,7 @@ export default function LandingPage() {
             </header>
 
             {/* Hero Section */}
-            <div className="mt-6 sm:mt-8 md:mt-12 lg:mt-16 pb-2 sm:pb-4 md:pb-6 flex flex-col items-center px-3 sm:px-4 md:px-8 lg:px-0 w-full">
+            <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 pb-2 sm:pb-3 md:pb-4 flex flex-col items-center px-3 sm:px-4 md:px-8 lg:px-0 w-full">
               <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-1 sm:gap-4 md:gap-5 lg:gap-6">
                   <div className="flex w-full max-w-[720px] flex-col items-center px-1 text-center font-serif text-3xl font-semibold leading-tight text-[#37322F] sm:max-w-[760px] sm:px-2 sm:text-4xl sm:leading-[1.15] md:text-5xl md:leading-[1.1] lg:text-[68px] lg:leading-[1.05]">
@@ -153,7 +153,7 @@ export default function LandingPage() {
                 ))}
               </div>
 
-              <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-5 sm:gap-7 md:gap-8 lg:gap-8 relative z-10 mt-3 sm:mt-4 md:mt-5 lg:mt-6">
+              <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-5 sm:gap-6 md:gap-6 lg:gap-6 relative z-10 mt-3 sm:mt-3 md:mt-4 lg:mt-4">
                 <div className="backdrop-blur-[8.25px] flex justify-center items-center">
                   <WorkWithMeModal
                     trigger={
