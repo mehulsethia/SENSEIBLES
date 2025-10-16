@@ -154,8 +154,8 @@ export default function WorkCarousel() {
       const translate = `calc(-50% + ${offset * 60}%)`
       const scale = isActive ? 1 : 0.88
       const opacity = isActive ? 1 : 0.55
-      const width = isActive ? "min(90vw, 720px)" : "min(65vw, 420px)"
-      const height = isActive ? "min(52vw, 420px)" : "min(48vw, 340px)"
+      const width = isActive ? "min(82vw, 720px)" : "min(54vw, 380px)"
+      const height = isActive ? "min(44vw, 360px)" : "min(38vw, 300px)"
 
       return {
         key: `${index}-${offset}`,
@@ -205,7 +205,7 @@ export default function WorkCarousel() {
         </div>
 
         <div
-          className="relative h-[320px] sm:h-[380px] md:h-[440px]"
+          className="relative h-[240px] sm:h-[320px] md:h-[420px]"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
@@ -267,7 +267,7 @@ export default function WorkCarousel() {
             type="button"
             aria-label="Previous project"
             onClick={goPrev}
-            className="absolute left-0 top-1/2 hidden -translate-y-1/2 translate-x-[-50%] rounded-full border border-[rgba(47,48,55,0.18)] bg-white/90 p-3 text-[#2F3037] shadow-[0_10px_30px_rgba(47,48,55,0.16)] transition hover:bg-white sm:flex"
+            className="absolute left-2 top-1/2 flex -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(47,48,55,0.18)] bg-white/95 p-2.5 text-[#2F3037] shadow-[0_10px_30px_rgba(47,48,55,0.16)] transition hover:bg-white sm:left-0 sm:translate-x-[-50%] sm:p-3"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 13L6 8L10 3" stroke="#2F3037" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -278,14 +278,14 @@ export default function WorkCarousel() {
             type="button"
             aria-label="Next project"
             onClick={goNext}
-            className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-[50%] rounded-full border border-[rgba(47,48,55,0.18)] bg-white/90 p-3 text-[#2F3037] shadow-[0_10px_30px_rgba(47,48,55,0.16)] transition hover:bg-white sm:flex"
+            className="absolute right-2 top-1/2 flex -translate-y-1/2 items-center justify-center rounded-full border border-[rgba(47,48,55,0.18)] bg-white/95 p-2.5 text-[#2F3037] shadow-[0_10px_30px_rgba(47,48,55,0.16)] transition hover:bg-white sm:right-0 sm:translate-x-[50%] sm:p-3"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 3L10 8L6 13" stroke="#2F3037" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
 
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#F7F5F3] to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent" />
         </div>
 
         <div className="mx-auto flex items-center justify-center gap-2">

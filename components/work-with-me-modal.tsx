@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState, type ReactNode } from "react"
+import { useEffect, useMemo, useState, type ReactNode } from "react"
 import CalEmbed from "@calcom/embed-react"
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
@@ -87,6 +87,27 @@ const budgetOptions = [
 export function WorkWithMeModal({ trigger, onOpenChange }: WorkWithMeModalProps) {
   const [open, setOpen] = useState(false)
   const [activeTab, setActiveTab] = useState<"call" | "message">("call")
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const updateMatch = () => {
+      if (typeof window !== "undefined") {
+        setIsMobile(window.matchMedia("(max-width: 639px)").matches)
+      }
+    }
+
+    updateMatch()
+    window.addEventListener("resize", updateMatch)
+    return () => {
+      window.removeEventListener("resize", updateMatch)
+    }
+  }, [])
+
+  const handleMobileClick = () => {
+    if (typeof window !== "undefined") {
+      window.open("https://cal.com/sethiamehul14/30min", "_blank", "noopener,noreferrer")
+    }
+  }
 
   const handleOpenChange = (next: boolean) => {
     setOpen(next)
@@ -96,48 +117,58 @@ export function WorkWithMeModal({ trigger, onOpenChange }: WorkWithMeModalProps)
     onOpenChange?.(next)
   }
 
+  if (isMobile) {
+    return (
+      <div onClick={handleMobileClick} className="cursor-pointer">
+        {trigger}
+      </div>
+    )
+  }
+
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-[860px] gap-5 rounded-[28px] border-0 bg-white p-6 shadow-[0px_24px_72px_rgba(28,24,21,0.16)] sm:max-w-[900px] sm:p-7 lg:p-8 max-h-[92vh] overflow-y-auto">
-        <DialogTitle className="text-center text-xl font-semibold text-[#1E1A17] sm:text-[26px]">
-          Work with us
-        </DialogTitle>
+      <DialogContent className="top-[5vh] left-1/2 -translate-x-1/2 translate-y-0 sm:top-1/2 sm:-translate-y-1/2 max-w-[860px] rounded-[28px] border-0 bg-white p-0 shadow-[0px_24px_72px_rgba(28,24,21,0.16)] sm:max-w-[900px] max-h-[calc(100dvh-24px)] sm:max-h-[92vh] overflow-hidden">
+        <div className="flex max-h-[calc(100dvh-24px)] w-full flex-col gap-5 overflow-y-auto p-6 sm:max-h-[92vh] sm:p-7 lg:p-8">
+          <DialogTitle className="text-center text-xl font-semibold text-[#1E1A17] sm:text-[26px]">
+            Work with us
+          </DialogTitle>
 
-        <Tabs
-          value={activeTab}
-          onValueChange={(value) => setActiveTab(value as typeof activeTab)}
-          className="flex w-full flex-col items-center gap-5"
-        >
-          <TabsList className="inline-flex w-full max-w-[360px] items-center justify-center rounded-full bg-[#F1EFEC] p-1 text-xs font-semibold text-[#847E7A] sm:text-sm">
-            <TabsTrigger
-              value="call"
-              className={cn(
-                "data-[state=active]:bg-white data-[state=active]:text-[#1E1A17] flex-1 rounded-full px-4 py-2 text-xs font-semibold transition sm:text-sm",
-                "data-[state=inactive]:text-[#847E7A]",
-              )}
-            >
-              Book a call
-            </TabsTrigger>
-            <TabsTrigger
-              value="message"
-              className={cn(
-                "data-[state=active]:bg-white data-[state=active]:text-[#1E1A17] flex-1 rounded-full px-4 py-2 text-xs font-semibold transition sm:text-sm",
-                "data-[state=inactive]:text-[#847E7A]",
-              )}
-            >
-              Send a message
-            </TabsTrigger>
-          </TabsList>
+          <Tabs
+            value={activeTab}
+            onValueChange={(value) => setActiveTab(value as typeof activeTab)}
+            className="flex w-full flex-col items-center gap-5"
+          >
+            <TabsList className="inline-flex w-full max-w-[360px] items-center justify-center rounded-full bg-[#F1EFEC] p-1 text-xs font-semibold text-[#847E7A] sm:text-sm">
+              <TabsTrigger
+                value="call"
+                className={cn(
+                  "data-[state=active]:bg-white data-[state=active]:text-[#1E1A17] flex-1 rounded-full px-4 py-2 text-xs font-semibold transition sm:text-sm",
+                  "data-[state=inactive]:text-[#847E7A]",
+                )}
+              >
+                Book a call
+              </TabsTrigger>
+              <TabsTrigger
+                value="message"
+                className={cn(
+                  "data-[state=active]:bg-white data-[state=active]:text-[#1E1A17] flex-1 rounded-full px-4 py-2 text-xs font-semibold transition sm:text-sm",
+                  "data-[state=inactive]:text-[#847E7A]",
+                )}
+              >
+                Send a message
+              </TabsTrigger>
+            </TabsList>
 
-          <TabsContent value="call" className="w-full">
-            <BookCallPane />
-          </TabsContent>
+            <TabsContent value="call" className="w-full">
+              <BookCallPane />
+            </TabsContent>
 
-          <TabsContent value="message" className="w-full">
-            <ContactForm />
-          </TabsContent>
-        </Tabs>
+            <TabsContent value="message" className="w-full">
+              <ContactForm />
+            </TabsContent>
+          </Tabs>
+        </div>
       </DialogContent>
     </Dialog>
   )
@@ -145,7 +176,7 @@ export function WorkWithMeModal({ trigger, onOpenChange }: WorkWithMeModalProps)
 
 function BookCallPane() {
   return (
-    <div className="flex w-full flex-col items-center gap-4">
+    <div className="flex w-full flex-col items-center gap-4 pb-2">
       <div className="flex flex-col gap-1.5 text-center text-sm text-[#55504C] sm:text-base">
         <p className="font-semibold text-[15px] text-[#1E1A17] sm:text-lg">Free 30 min discovery call</p>
         <p>
@@ -155,7 +186,7 @@ function BookCallPane() {
       <div className="relative w-full overflow-hidden rounded-[26px] border border-[#E6E1DC] bg-white shadow-[0px_20px_48px_rgba(30,26,23,0.1)]">
         <CalEmbed
           calLink="sethiamehul14/30min"
-          style={{ width: "100%", height: "600px" }}
+          style={{ width: "100%", height: "min(58vh, 520px)" }}
           config={{ layout: "month_view", primaryColor: "#37322F", hideEventTypeDetails: false }}
         />
       </div>

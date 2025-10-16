@@ -81,11 +81,11 @@ function ComparisonRow({ row }: { row: Row }) {
 
   return (
     <div
-      className={`grid grid-cols-1 gap-4 rounded-[24px] border p-5 text-sm leading-6 transition duration-300 transform-gpu sm:[grid-template-columns:160px_repeat(5,minmax(0,1fr))] ${
+      className={`min-w-[980px] grid grid-flow-col auto-cols-[minmax(150px,1fr)] gap-4 rounded-[24px] border p-5 text-sm leading-6 transition duration-300 transform-gpu md:min-w-0 md:grid-cols-6 md:auto-cols-auto md:[grid-template-columns:150px_repeat(5,minmax(0,1fr))] ${
         row.highlight ? highlightClasses : baseClasses
       }`}
     >
-      <div className="flex items-center justify-start text-sm font-semibold uppercase tracking-[0.2em] sm:justify-start">
+      <div className="flex items-center justify-center text-sm font-semibold uppercase tracking-[0.2em] sm:justify-start sm:text-left">
         {row.name}
       </div>
 
@@ -96,9 +96,6 @@ function ComparisonRow({ row }: { row: Row }) {
             row.highlight ? "bg-white/10 text-[#f6f5f2]" : "bg-white text-[#3f3a36] border-[#eae5df]"
           }`}
         >
-          <span className="mb-1 text-xs font-semibold uppercase tracking-[0.25em] text-[#9A938F] sm:hidden">
-            {categories[index]}
-          </span>
           <span className="text-[13px] leading-6 sm:text-[15px]">{value}</span>
         </div>
       ))}
@@ -131,19 +128,21 @@ export default function ComparisonTable() {
           </p>
         </div>
 
-        <div className="hidden gap-3 rounded-[32px] border border-[rgba(55,50,47,0.18)] bg-white/90 p-5 text-left text-xs font-semibold uppercase tracking-[0.3em] text-[#9A938F] shadow-[0_12px_40px_rgba(55,50,47,0.12)] backdrop-blur-sm sm:grid sm:[grid-template-columns:repeat(6,minmax(0,1fr))]">
-          <div />
-          {categories.map((header) => (
-            <div key={header} className="text-center">
-              {header}
+        <div className="-mx-4 overflow-x-auto pb-4 sm:mx-0 sm:overflow-visible">
+          <div className="flex min-w-[980px] flex-col gap-4 md:min-w-0">
+            <div className="grid min-w-[980px] grid-flow-col auto-cols-[minmax(150px,1fr)] gap-3 rounded-[32px] border border-[rgba(55,50,47,0.18)] bg-white/90 p-5 text-left text-[11px] font-semibold uppercase tracking-[0.3em] text-[#9A938F] shadow-[0_12px_40px_rgba(55,50,47,0.12)] backdrop-blur-sm md:grid-cols-6 md:auto-cols-auto md:[grid-template-columns:150px_repeat(5,minmax(0,1fr))] md:text-xs">
+              <div className="flex items-center justify-center text-center sm:justify-start">MODEL</div>
+              {categories.map((header) => (
+                <div key={header} className="text-center">
+                  {header}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className="flex flex-col gap-4">
-          {rows.map((row) => (
-            <ComparisonRow key={row.id} row={row} />
-          ))}
+            {rows.map((row) => (
+              <ComparisonRow key={row.id} row={row} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

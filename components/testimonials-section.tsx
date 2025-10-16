@@ -83,80 +83,85 @@ export default function TestimonialsSection() {
       {/* Header Section */}
 
       {/* Testimonial Content */}
-      <div className="self-stretch px-2 overflow-hidden flex justify-start items-center bg-background border border-b border-l-0 border-r-0 border-t-0">
-        <div className="flex-1 py-16 md:py-17 flex flex-col md:flex-row justify-center items-end gap-6">
-          <div className="self-stretch px-3 md:px-12 justify-center items-start gap-4 flex flex-col md:flex-row">
-            <img
-              className="w-48 h-50 md:w-48 md:h-50 rounded-lg object-cover transition-all duration-700 ease-in-out"
-              style={{
-                opacity: isTransitioning ? 0.6 : 1,
-                transform: isTransitioning ? "scale(0.95)" : "scale(1)",
-                transition: "opacity 0.7s ease-in-out, transform 0.7s ease-in-out",
-              }}
-              src={testimonials[activeTestimonial].image || "/placeholder.svg"}
-              alt={testimonials[activeTestimonial].name}
-            />
-            <div className="flex-1 px-6 py-6 shadow-[0px_0px_0px_0.75px_rgba(50,45,43,0.12)] overflow-hidden flex flex-col justify-start items-start gap-6 shadow-none pb-0 pt-0">
-              <div
-                className="self-stretch justify-start flex flex-col text-[#49423D] text-2xl md:text-[32px] font-medium leading-10 md:leading-[42px] font-sans h-[200px] md:h-[210px] overflow-hidden line-clamp-5 transition-all duration-700 ease-in-out tracking-tight"
-                style={{
-                  filter: isTransitioning ? "blur(4px)" : "blur(0px)",
-                  transition: "filter 0.7s ease-in-out",
-                }}
-              >
-                "{testimonials[activeTestimonial].quote}"
-              </div>
-              <div
-                className="self-stretch flex flex-col justify-start items-start gap-1 transition-all duration-700 ease-in-out"
-                style={{
-                  filter: isTransitioning ? "blur(4px)" : "blur(0px)",
-                  transition: "filter 0.7s ease-in-out",
-                }}
-              >
-                <div className="self-stretch justify-center flex flex-col text-[rgba(73,66,61,0.90)] text-lg font-medium leading-[26px] font-sans">
-                  {testimonials[activeTestimonial].name}
+      <div className="self-stretch px-3 sm:px-4 overflow-hidden flex justify-center items-center bg-background border border-b border-l-0 border-r-0 border-t-0">
+        <div className="flex w-full max-w-[960px] flex-col items-center gap-6 py-14 text-center sm:gap-8 sm:py-16 md:text-left">
+          <div className="flex w-full flex-col items-center gap-6 md:flex-row md:items-start md:justify-between md:gap-10">
+            <div className="flex flex-col items-center gap-6 md:flex-row md:items-start md:gap-6">
+              <div className="flex items-center justify-center">
+                <div className="flex size-20 items-center justify-center rounded-full border border-[rgba(0,0,0,0.12)] bg-white/85 p-1.5 shadow-[0px_4px_14px_rgba(73,66,61,0.14)] transition-all duration-700 ease-in-out sm:size-24 sm:p-2.5">
+                  <img
+                    className="size-full rounded-full object-cover"
+                    style={{
+                      opacity: isTransitioning ? 0.6 : 1,
+                      transform: isTransitioning ? "scale(0.95)" : "scale(1)",
+                      transition: "opacity 0.7s ease-in-out, transform 0.7s ease-in-out",
+                    }}
+                    src={testimonials[activeTestimonial].image || "/placeholder.svg"}
+                    alt={testimonials[activeTestimonial].name}
+                  />
                 </div>
-                <div className="self-stretch justify-center flex flex-col text-[rgba(73,66,61,0.70)] text-lg font-medium leading-[26px] font-sans">
-                  {testimonials[activeTestimonial].company}
+              </div>
+              <div className="flex max-w-[540px] flex-col items-center gap-5 px-3 py-4 sm:px-6 sm:py-6 shadow-[0px_0px_0px_0.75px_rgba(50,45,43,0.12)] md:items-start md:shadow-none">
+                <div
+                  className="w-full text-[#49423D] text-base font-medium leading-7 tracking-tight transition-all duration-700 ease-in-out sm:text-[19px] sm:leading-8 md:text-[28px] md:leading-[38px]"
+                  style={{
+                    filter: isTransitioning ? "blur(4px)" : "blur(0px)",
+                    transition: "filter 0.7s ease-in-out",
+                  }}
+                >
+                  “{testimonials[activeTestimonial].quote}”
+                </div>
+                <div
+                  className="flex w-full flex-col items-center gap-1 text-center transition-all duration-700 ease-in-out md:items-start md:text-left"
+                  style={{
+                    filter: isTransitioning ? "blur(4px)" : "blur(0px)",
+                    transition: "filter 0.7s ease-in-out",
+                  }}
+                >
+                  <div className="text-[rgba(73,66,61,0.90)] text-base font-semibold uppercase tracking-[0.18em]">
+                    {testimonials[activeTestimonial].name}
+                  </div>
+                  <div className="text-[rgba(73,66,61,0.70)] text-xs font-medium sm:text-sm">
+                    {testimonials[activeTestimonial].company}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Navigation Arrows */}
-          <div className="pr-6 justify-start items-start gap-[14px] flex">
-            <button
-              onClick={() => handleNavigationClick((activeTestimonial - 1 + testimonials.length) % testimonials.length)}
-              className="w-9 h-9 shadow-[0px_1px_2px_rgba(0,0,0,0.08)] overflow-hidden rounded-full border border-[rgba(0,0,0,0.15)] justify-center items-center gap-2 flex hover:bg-gray-50 transition-colors"
-            >
-              <div className="w-6 h-6 relative overflow-hidden">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M15 18L9 12L15 6"
-                    stroke="#46413E"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </button>
-            <button
-              onClick={() => handleNavigationClick((activeTestimonial + 1) % testimonials.length)}
-              className="w-9 h-9 shadow-[0px_1px_2px_rgba(0,0,0,0.08)] overflow-hidden rounded-full border border-[rgba(0,0,0,0.15)] justify-center items-center gap-2 flex hover:bg-gray-50 transition-colors"
-            >
-              <div className="w-6 h-6 relative overflow-hidden">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M9 18L15 12L9 6"
-                    stroke="#46413E"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </button>
+            <div className="hidden h-full w-px bg-[rgba(55,50,47,0.12)] md:block" />
+            <div className="flex items-center gap-3 md:self-end">
+              <button
+                onClick={() => handleNavigationClick((activeTestimonial - 1 + testimonials.length) % testimonials.length)}
+                className="flex size-9 items-center justify-center rounded-full border border-[rgba(0,0,0,0.15)] bg-white shadow-[0px_1px_2px_rgba(0,0,0,0.08)] transition-colors hover:bg-gray-50"
+              >
+                <div className="relative flex size-6 items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M15 18L9 12L15 6"
+                      stroke="#46413E"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+              <button
+                onClick={() => handleNavigationClick((activeTestimonial + 1) % testimonials.length)}
+                className="flex size-9 items-center justify-center rounded-full border border-[rgba(0,0,0,0.15)] bg-white shadow-[0px_1px_2px_rgba(0,0,0,0.08)] transition-colors hover:bg-gray-50"
+              >
+                <div className="relative flex size-6 items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M9 18L15 12L9 6"
+                      stroke="#46413E"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>

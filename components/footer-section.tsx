@@ -46,7 +46,7 @@ export default function FooterSection() {
       {/* Gradient Wordmark */}
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 pt-12 pb-8 flex items-center justify-center">
         <div className="relative w-full max-w-[1060px] overflow-visible">
-          <p className="text-center text-[clamp(3.5rem,12vw,8rem)] font-semibold tracking-[0.08em] uppercase bg-gradient-to-b from-[#8f8a86] via-[#c4c0bc] to-[#f7f5f3] bg-clip-text text-transparent leading-none">
+          <p className="text-center text-[clamp(2.8rem,11vw,7.5rem)] font-semibold tracking-[0.06em] uppercase bg-gradient-to-b from-[#8f8a86] via-[#c4c0bc] to-[#f7f5f3] bg-clip-text text-transparent leading-tight">
             SENSEIBLES
           </p>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent via-[#f7f5f3]/65 to-[#f7f5f3]" />

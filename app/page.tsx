@@ -22,9 +22,9 @@ import { WorkWithMeModal } from "@/components/work-with-me-modal"
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="px-[14px] py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs">
-      <div className="w-[14px] h-[14px] relative overflow-hidden flex items-center justify-center">{icon}</div>
-      <div className="text-center flex justify-center flex-col text-[#37322F] text-xs font-medium leading-3 font-sans">
+    <div className="px-3 py-[5px] sm:px-[14px] sm:py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex justify-start items-center gap-2 sm:gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs">
+      <div className="w-3.5 h-3.5 sm:w-[14px] sm:h-[14px] relative overflow-hidden flex items-center justify-center">{icon}</div>
+      <div className="text-center flex justify-center flex-col text-[#37322F] text-[11px] leading-[12px] font-medium font-sans sm:text-xs sm:leading-3">
         {text}
       </div>
     </div>
@@ -55,7 +55,7 @@ export default function LandingPage() {
             {/* Navigation */}
             <header className="relative z-20 w-full px-4 sm:px-6 md:px-8 lg:px-0 flex justify-center items-center py-3">
               <div className="pointer-events-none absolute inset-x-4 top-1/2 hidden h-px -translate-y-1/2 bg-[rgba(55,50,47,0.12)] shadow-[0px_1px_0px_white] sm:block sm:inset-x-6 md:inset-x-8 lg:inset-x-0" />
-              <div className="relative mx-auto flex w-full max-w-[720px] items-center gap-3 rounded-full bg-[#F7F5F3]/95 px-3 py-[6px] shadow-[0px_0px_0px_2px_white] backdrop-blur-sm sm:px-4 sm:py-[8px] md:px-6">
+              <div className="relative flex w-full items-center gap-3 rounded-full bg-[#F7F5F3]/95 px-3 py-[6px] shadow-[0px_0px_0px_2px_white] backdrop-blur-sm sm:mx-auto sm:max-w-[720px] sm:px-4 sm:py-[8px] md:px-6">
                 <Link href="/" className="flex items-center">
                   <Image src="/logo/LOGO.png" alt="Senseibles" width={120} height={32} priority className="h-7 w-auto" />
                 </Link>
@@ -97,38 +97,38 @@ export default function LandingPage() {
                     </svg>
                   )}
                 </button>
-              </div>
-              <div
-                className={`sm:hidden transition-all duration-300 ease-in-out ${
-                  isMobileNavOpen ? "max-h-64 opacity-100" : "pointer-events-none max-h-0 opacity-0"
-                }`}
-              >
-                <div className="mx-auto mt-3 flex w-full max-w-[720px] flex-col gap-3 rounded-[24px] border border-[rgba(55,50,47,0.12)] bg-white/90 px-4 py-4 text-sm font-medium text-[#49423D] shadow-[0px_16px_36px_rgba(55,50,47,0.16)] backdrop-blur-sm">
-                  {navLinks.map((link) => (
-                    <a
-                      key={`mobile-${link.href}`}
-                      href={link.href}
-                      onClick={() => setIsMobileNavOpen(false)}
-                      className="rounded-[18px] px-3 py-2 text-left transition hover:bg-[#F7F5F3]/80"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                  <WorkWithMeModal
-                    onOpenChange={(isOpen) => {
-                      if (isOpen) {
-                        setIsMobileNavOpen(false)
-                      }
-                    }}
-                    trigger={
-                      <button
-                        type="button"
-                        className="inline-flex items-center justify-center rounded-full bg-[#37322F] px-4 py-2 text-sm font-medium text-white shadow-[0px_8px_20px_rgba(55,50,47,0.2)] transition hover:bg-[#37322F]/90"
+                <div
+                  className={`sm:hidden absolute right-0 top-[calc(100%+12px)] z-30 w-[210px] rounded-[24px] border border-[rgba(55,50,47,0.12)] bg-white/95 px-4 py-5 text-sm font-medium text-[#49423D] shadow-[0px_16px_36px_rgba(55,50,47,0.18)] backdrop-blur-md transition-all duration-200 ${
+                    isMobileNavOpen ? "pointer-events-auto opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-2"
+                  }`}
+                >
+                  <div className="flex flex-col gap-3">
+                    {navLinks.map((link) => (
+                      <a
+                        key={`mobile-${link.href}`}
+                        href={link.href}
+                        onClick={() => setIsMobileNavOpen(false)}
+                        className="rounded-[18px] px-3 py-2 text-left transition hover:bg-[#F7F5F3]/80"
                       >
-                        Book a call
-                      </button>
-                    }
-                  />
+                        {link.label}
+                      </a>
+                    ))}
+                    <WorkWithMeModal
+                      onOpenChange={(isOpen) => {
+                        if (isOpen) {
+                          setIsMobileNavOpen(false)
+                        }
+                      }}
+                      trigger={
+                        <button
+                          type="button"
+                          className="inline-flex items-center justify-center rounded-full bg-[#37322F] px-4 py-2 text-sm font-medium text-white shadow-[0px_8px_20px_rgba(55,50,47,0.18)] transition hover:bg-[#37322F]/90"
+                        >
+                          Book a call
+                        </button>
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </header>
@@ -137,19 +137,18 @@ export default function LandingPage() {
             <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 pb-2 sm:pb-3 md:pb-4 flex flex-col items-center px-3 sm:px-4 md:px-8 lg:px-0 w-full">
               <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-1 sm:gap-4 md:gap-5 lg:gap-6">
-                  <div className="flex w-full max-w-[720px] flex-col items-center px-1 text-center font-serif text-3xl font-semibold leading-tight text-[#37322F] sm:max-w-[760px] sm:px-2 sm:text-4xl sm:leading-[1.15] md:text-5xl md:leading-[1.1] lg:text-[68px] lg:leading-[1.05]">
-                    Built With Sense. By Senseis.
+                  <div className="flex w-full max-w-[720px] flex-col items-center px-1 text-center font-serif text-[32px] font-semibold leading-[1.15] text-[#37322F] sm:max-w-[760px] sm:px-2 sm:text-4xl sm:leading-[1.15] md:text-5xl md:leading-[1.1] lg:text-[68px] lg:leading-[1.05]">
+                    <span className="block md:inline">Built With Sense.</span>
+                    <span className="block md:inline">By Senseis.</span>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-3.5 lg:gap-4 mt-3 sm:mt-4 md:mt-5">
-                {["Design", "Development", "AI", "Automation"].map((label) => (
-                  <Badge
-                    key={label}
-                    icon={<span className="inline-block size-[10px] rounded-full bg-[#37322F]" />}
-                    text={label}
-                  />
+              <div className="flex flex-wrap items-center justify-center gap-1.5 sm:flex-wrap sm:gap-3 md:gap-3.5 lg:gap-4 mt-3 sm:mt-4 md:mt-5 max-w-[340px] sm:max-w-none">
+                {["Design", "Development", "AI", "Automation"].map((label, index) => (
+                  <div key={label} className="w-1/3 min-w-[140px] flex justify-center sm:w-auto sm:min-w-0">
+                    <Badge icon={<span className="inline-block size-[10px] rounded-full bg-[#37322F]" />} text={label} />
+                  </div>
                 ))}
               </div>
 
@@ -227,7 +226,10 @@ export default function LandingPage() {
                       { highlight: "10x", title: "faster turnaround", sub: "from idea to launch" },
                       { highlight: "100%", title: "client retention", sub: "clarity builds trust" },
                     ].map((metric) => (
-                      <div key={metric.highlight} className="rounded-3xl bg-white/80 px-6 py-8 text-left shadow-[0px_12px_24px_rgba(47,48,55,0.08)]">
+                      <div
+                        key={metric.highlight}
+                        className="rounded-3xl bg-white/80 px-6 py-8 text-center shadow-[0px_12px_24px_rgba(47,48,55,0.08)] sm:text-left"
+                      >
                         <div className="text-3xl font-serif font-semibold text-[#2F3037]">{metric.highlight}</div>
                         <div className="text-lg font-semibold text-[#2F3037]">{metric.title}</div>
                         <div className="text-sm text-[#605A57]">{metric.sub}</div>
@@ -257,7 +259,7 @@ export default function LandingPage() {
                     }
                   }
                   .logo-marquee {
-                    animation: logo-marquee 16s linear infinite;
+                    animation: logo-marquee 8s linear infinite;
                   }
                 `}</style>
               </section>
@@ -447,12 +449,12 @@ export default function LandingPage() {
                       <br />
                       Senseible by nature.
                     </h2>
-                    <p className="mx-auto max-w-[520px] text-sm leading-7 text-[#605A57] sm:mx-0 sm:text-base">
+                    <p className="mx-auto max-w-[600px] text-sm leading-7 text-[#605A57] sm:mx-0 sm:text-base">
                       Your brand deserves tech that feels intuitive, looks stunning, and thinks for itself. We bring clarity to chaos — through thoughtful design, functional code, and a touch of AI magic.
                     </p>
                   </div>
 
-                  <div className="relative z-20 w-full max-w-[460px] rounded-[24px] border border-white/70 bg-white/90 p-6 text-left sm:p-8 lg:p-10">
+                  <div className="relative z-20 w-full max-w-[640px] rounded-[24px] border border-white/70 bg-white/90 p-6 text-left sm:max-w-[520px] sm:p-8 lg:p-10">
                     <div className="flex items-center gap-4">
                       <div className="flex size-14 items-center justify-center overflow-hidden rounded-full border border-white/70">
                         <img src="/profile-pic.jpeg" alt="Senseibles contact" className="h-full w-full object-cover" />
@@ -475,11 +477,11 @@ export default function LandingPage() {
                         </button>
                       }
                     />
-                    <div className="mt-6 flex items-center gap-3 rounded-2xl border border-[#E6E3E0] bg-white p-4 text-sm text-[#2F3037]">
-                      <div className="flex size-10 items-center justify-center rounded-full bg-[#2F3037]/10 text-[#2F3037]">
+                    <div className="mt-6 flex w-full items-center gap-3 rounded-2xl border border-[#E6E3E0] bg-white p-4 text-sm text-[#2F3037] sm:flex-wrap">
+                      <div className="flex size-10 items-center justify-center rounded-full border border-[#2F3037]/15 bg-[#2F3037]/10 text-[#2F3037]">
                         ✉️
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <p className="text-xs uppercase tracking-[0.3em] text-[#9A938F]">Prefer email?</p>
                         <a href="mailto:sethiamehul14@gmail.com" className="font-medium">
                           sethiamehul14@gmail.com
