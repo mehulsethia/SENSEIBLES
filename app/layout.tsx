@@ -25,6 +25,11 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
         />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&display=swap" />
+        <script
+          src="https://api.convuu.com/widget.js"
+          data-convuu-public-key="da244971-93a3-4955-a9c2-c6a10952906a"
+          defer
+        />
       </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
