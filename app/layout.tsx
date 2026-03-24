@@ -25,7 +25,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
         />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&display=swap" />
-        <script src="https://converc.vercel.app/widget.js" data-public-key="e8dd8b94-e767-431c-8f40-1673ba1aad55" defer></script>
+        <script src="https://converc.com/widget.js" data-public-key="5b9ad963-7120-44ed-9fb4-964c0556ef56" defer></script>
       </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
