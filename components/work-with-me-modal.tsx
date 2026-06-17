@@ -84,6 +84,9 @@ const budgetOptions = [
   { value: "not-sure", label: "Not sure yet" },
 ]
 
+const bookingCalLink = "sethiamehul14/chat-with-mehul"
+const bookingUrl = `https://cal.com/${bookingCalLink}`
+
 export function WorkWithMeModal({ trigger, onOpenChange }: WorkWithMeModalProps) {
   const [open, setOpen] = useState(false)
   const [activeTab, setActiveTab] = useState<"call" | "message">("call")
@@ -105,7 +108,7 @@ export function WorkWithMeModal({ trigger, onOpenChange }: WorkWithMeModalProps)
 
   const handleMobileClick = () => {
     if (typeof window !== "undefined") {
-      window.open("https://cal.com/sethiamehul14/30min", "_blank", "noopener,noreferrer")
+      window.open(bookingUrl, "_blank", "noopener,noreferrer")
     }
   }
 
@@ -185,7 +188,7 @@ function BookCallPane() {
       </div>
       <div className="relative w-full overflow-hidden rounded-[26px] border border-[#E6E1DC] bg-white shadow-[0px_20px_48px_rgba(30,26,23,0.1)]">
         <CalEmbed
-          calLink="sethiamehul14/30min"
+          calLink={bookingCalLink}
           style={{ width: "100%", height: "min(58vh, 520px)" }}
           config={{ layout: "month_view", primaryColor: "#37322F", hideEventTypeDetails: false }}
         />

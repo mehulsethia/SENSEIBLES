@@ -1,0 +1,75 @@
+'use client';
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { CustomEase } from "gsap/CustomEase";
+import { TextPlugin } from "gsap/TextPlugin";
+
+import useStats from "@/lib/lab-stores/useStats";
+import { useProgress } from "@react-three/drei";
+
+gsap.registerPlugin(CustomEase);
+gsap.registerPlugin(TextPlugin);
+
+CustomEase.create("hop", "0.8, 0., 0.3, 1.");
+
+const Index = () => {
+  // console.log("loader r");
+
+  const handleScopeAnim = useStats.getState().handleScopeAnim;
+
+  const loaderRef = useRef(null);
+
+  const textContainerRef = useRef(null);
+  const { progress } = useProgress();
+
+  useEffect(() => {
+    if (progress === 100) {
+      gsap.delayedCall(0.5, () => {
+        gsap.to(textContainerRef.current, {
+          opacity: 0,
+          duration: 1,
+          delay: 0.75,
+          ease: "hop",
+          onStart: () => {
+            // gsap.set(".paragraph .line span", { y: "-100%" });
+
+            gsap.delayedCall(1, () => {
+              handleScopeAnim();
+            });
+          },
+        });
+
+        gsap.to(loaderRef.current, {
+          opacity: 0,
+          duration: 0.75,
+          delay: 2,
+          ease: "hop",
+
+          onComplete: () => {
+            gsap.delayedCall(1, () => {
+              loaderRef.current.remove();
+            });
+          },
+        });
+      });
+    }
+  }, [progress]);
+
+  return (
+    <div
+      ref={loaderRef}
+      style={{ opacity: 0.9875 }}
+      className="fixed z-[60] inset-0 h-[100svh] w-full flex justify-center items-center bg-white pointer-events-none"
+    >
+      <div
+        ref={textContainerRef}
+        className="flex flex-row items-center justify-between gap-3 overflow-hidden font-main !font-[400]"
+      >
+        <span>{progress.toFixed(0)}</span>
+      </div>
+    </div>
+  );
+};
+
+export default Index;
